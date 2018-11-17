@@ -57,6 +57,34 @@ class MetodosDeOrdenamiento{
 		System.out.println("-------> Intercambios: " + conInter );
 		System.out.println("-------> Comparaciones: " + conComp);
 	}
+	public void ordenamientoBurbuja3(int []numeros) {
+		int aux, conReco = 0, conInter = 0, conComp=0;
+		long tInicio, tFin;
+		tInicio = System.nanoTime();
+		int i=1;
+		boolean ordenado;
+		do {
+			i=i+1;
+			ordenado =true;
+			for(int j=0; j<=numeros.length-i; j++) {
+				if(numeros[j]>numeros[j+1]) {
+					aux = numeros[j];
+					numeros[j] = numeros[j+1];
+					numeros[j+1]=aux;
+					conInter++;
+				}
+				conComp++;
+			}
+			conReco++;
+		}while((i<numeros.length)&&(ordenado == true));
+		mostrarVector(numeros);
+		tFin = System.nanoTime();
+		System.out.println("-------> Tiempo de Procesamiento: " + (tFin - tInicio));
+		System.out.println("-------> Recorridos: " +conReco );
+		System.out.println("-------> Intercambios: " + conInter );
+		System.out.println("-------> Comparaciones: " + conComp);
+	
+	}
 }
 public class EjemploMetodosORdenamiento {
 	public static void main(String[] args) {
